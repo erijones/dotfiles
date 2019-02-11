@@ -1,0 +1,8 @@
+(xbindkey '("XF86AudioRaiseVolume") "amixer -c 0 sset 'Master',0 2dB+")
+(xbindkey '("XF86AudioLowerVolume") "amixer -c 0 sset 'Master',0 2dB-")
+(xbindkey '("XF86AudioMute") "amixer set Master toggle")
+(xbindkey '("XF86MonBrightnessDown") "xbacklight -dec 10")
+(xbindkey '("XF86MonBrightnessUp") "xbacklight -inc 10")
+(xbindkey '("XF86WLAN") "nmcli r wifi off && sleep 1 && nmcli r wifi on")
+(xbindkey '("XF86Explorer") "setxkbmap ru -variant phonetic && echo 4")
+(xbindkey '("XF86LaunchA") "setxkbmap us")

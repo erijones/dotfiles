@@ -1,0 +1,8 @@
+" EASY COMPILATION OF LATEX
+"Latex files, @w compiles, @o opens
+autocmd BufRead,BufNewFile *.tex let @w=':wa:!compile_article %'
+"build_pdf to compile markdown and latex files into pdfs
+autocmd BufRead,BufNewFile *.md let @w=':wa:!build_pdf %:r'
+"use serv_tex, for compiling tex on a server"
+autocmd BufRead,BufNewFile *.tex let @o=':!evince %:r.pdf &> /dev/null &'
+autocmd BufRead,BufNewFile *.md let @o=':!evince %:r.pdf &> /dev/null &'

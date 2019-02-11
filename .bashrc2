@@ -1,0 +1,13 @@
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# list files backwards in time since last edit
+alias lt='ls -cltrh'
+# coloring for files and directories
+alias ls='ls --color=auto'
+
+# automatically cd upon ls-ing
+function cd {
+    builtin cd "$@" && ls
+}
+
