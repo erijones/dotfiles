@@ -45,7 +45,7 @@ preexec () { echo -ne "\e[0m" }
 # Add ssh-identities
 if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s` &>/dev/null
-    ssh-add ~/.ssh/github_rsa &>/dev/null
+    ssh-add ~/.ssh/git_ssh &>/dev/null
 fi
 
 
@@ -55,6 +55,11 @@ PATH=$HOME/aur/bibutils/src/bibutils_5.6/bin:$HOME/.cabal/bin:$HOME/bin:$HOME/au
 
 # Fix WSL bug for Mathematica
 export KMP_AFFINITY=disabled
+
+# automatically cd upon ls-ing
+#function cd {
+#    builtin cd "$@" && ls
+#}
 
 # make c cd and ls
 function chpwd() {
@@ -160,3 +165,4 @@ function vmd() {
     vim $1
 }
 
+clear

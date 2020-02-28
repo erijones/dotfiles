@@ -19,10 +19,11 @@ xset s off
 # exec gnome-session
 # exec startkde
 # exec startxfce4
-setxkbmap -option caps:escape
 dropbox &
+slack &
+setxkbmap -option caps:escape
 nm-applet &
 xbindkeys &
 
-exec i3 
+exec i3
 # ...or the Window Manager of your choice

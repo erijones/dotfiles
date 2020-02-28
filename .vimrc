@@ -1,21 +1,17 @@
 set nocompatible
 filetype off
 
-execute pathogen#infect()
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
+call plug#begin()
+Plug 'gmarik/Vundle.vim'
 "Plugin 'tpope/vim-fugitive'
 "Plugin 'L9'
 "Plugin 'git://git.wincent.com/command-t.git'
 ""Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'ervandew/supertab'
-Bundle 'jeetsukumaran/vim-indentwise'
-Plugin 'Valloric/YouCompleteMe'
+Plug 'ervandew/supertab'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Vimjas/vim-python-pep8-indent'
+call plug#end()
 
-call vundle#end()
 filetype plugin indent on
 
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
@@ -33,6 +29,7 @@ set scrolloff=12
 set textwidth=79
 set wildmenu
 set relativenumber
+set encoding=utf-8
 
 
 syntax on
@@ -47,7 +44,7 @@ colorscheme peachpuff
 ":setlocal foldmethod=indent
 hi Folded ctermbg=black ctermfg=216
 
-highlight cursorline cterm=bold ctermbg=235
+highlight cursorline term=bold cterm=bold ctermbg=235
 highlight Search ctermbg=54
 noremap <leader>cl :set cursorline!<cr>
 set cursorline
