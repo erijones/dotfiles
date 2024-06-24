@@ -46,6 +46,7 @@ preexec () { echo -ne "\e[0m" }
 if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s` &>/dev/null
     ssh-add ~/.ssh/git_ssh &>/dev/null
+    ssh-add ~/.ssh/cedar_key &>/dev/null
 fi
 
 
@@ -55,6 +56,7 @@ PATH=$HOME/aur/bibutils/src/bibutils_5.6/bin:$HOME/.cabal/bin:$HOME/bin:$HOME/au
 
 # Fix WSL bug for Mathematica
 export KMP_AFFINITY=disabled
+export PERL_DESTRUCT_LEVEL=2
 
 # automatically cd upon ls-ing
 #function cd {
@@ -93,7 +95,14 @@ function makebib() {
 function pp() {
     temp=$(ls -tr | grep ".pdf" | tail -n1)
     echo $temp
-    pdf $temp
+    pdf $temp &
+}
+
+# open last file with okular 
+function oo() {
+    temp=$(ls -tr | grep ".pdf" | tail -n1)
+    echo $temp
+    okular $temp &> /dev/null &
 }
 
 # open last file with vim 
@@ -165,4 +174,8 @@ function vmd() {
     vim $1
 }
 
+
 clear
+
+# Created by `pipx` on 2024-06-03 04:26:29
+export PATH="$PATH:/home/eric/.local/bin"
